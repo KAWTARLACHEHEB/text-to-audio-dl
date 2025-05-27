@@ -1,57 +1,129 @@
 <div align="center">
   <img src="https://github.com/user-attachments/assets/0c269e33-fbba-4fb3-8313-564803d0c2e6"width=800>
 </div>
+# 🗣️ Text-to-Speech (TTS) Demo with PyTorch & Streamlit
 
-# text-to-audio-dl
-# Text-to-Audio - End-to-End Deep Learning Project
-
-Ce projet présente un système complet de synthèse vocale basé sur un réseau de neurones artificiels entraîné à partir de zéro.  
-L’objectif est de convertir une phrase textuelle en signal audio en apprenant à mapper les représentations textuelles vers des MFCCs (features audio), puis à reconstruire le son.
+This is a web-based Text-to-Speech (TTS) demo built using **PyTorch**, **Streamlit**, and pre-trained models saved in the Hugging Face-compatible format. Users can input English text and generate realistic synthetic speech.
 
 ---
 
-## Objectif du projet
+## 🚀 Features
 
-- Créer un pipeline **texte → MFCC → audio**
-- Utiliser le dataset **LJSpeech 1.1** contenant des fichiers `.wav` et leurs transcriptions
-- Entraîner un petit **modèle ANN avec TensorFlow/Keras**
-- Déployer une interface via **Streamlit**
-
----
-
-## Dataset utilisé
-
-- **Nom** : LJSpeech-1.1  
-- **Source** : https://keithito.com/LJ-Speech-Dataset/  
-- **Taille** : 13 100 phrases lues par une voix féminine
-- Utilisé ici : **sous-ensemble de 500 exemples**
+- Convert English text into speech
+- Simple, interactive web interface using Streamlit
+- Uses a pre-trained TTS model and vocoder
+- Models are saved and loaded using Hugging Face’s `save_pretrained` / `from_pretrained`
 
 ---
 
-##  Technologies utilisées
+## 📁 Project Structure
+tts-demo/
+├── saved_tts_model/
+│ ├── config.json
+│ ├── pytorch_model.bin
+│ ├── tokenizer_config.json
+│ └── vocoder/
+│ ├── config.json
+│ └── pytorch_model.bin
+├── streamlit_app.py
+├── requirements.txt
+└── README.md
 
-- Python 3.9
-- TensorFlow / Keras
-- Librosa (extraction MFCC + reconstruction audio)
-- Matplotlib
-- Jupyter Notebook
-- Streamlit
-
----
-
-## Étapes du projet
-
-1. **Chargement du dataset** `metadata.csv` + fichiers `.wav`
-2. **Prétraitement du texte** (tokenisation, encodage)
-3. **Extraction des MFCCs** à partir des fichiers audio
-4. **Entraînement d’un modèle ANN**
-5. **Génération audio prédite** via les MFCCs
-6. **Interface utilisateur Streamlit (à venir)**
+yaml
+Copier
+Modifier
 
 ---
 
-## Lancer le projet
+## 🛠️ Installation
 
-### 1. Installer les dépendances
+1. **Clone the repository**
+
 ```bash
-pip install tensorflow librosa matplotlib pandas scikit-learn streamlit
+git clone https://github.com/your-username/tts-demo.git
+cd tts-demo
+Install dependencies
+
+bash
+Copier
+Modifier
+pip install -r requirements.txt
+Verify your models are saved in saved_tts_model/
+Make sure you saved them like this:
+
+python
+Copier
+Modifier
+processor.save_pretrained(output_dir)
+model.save_pretrained(output_dir)
+vocoder.save_pretrained(os.path.join(output_dir, "vocoder"))
+▶️ Run the Application
+bash
+Copier
+Modifier
+streamlit run streamlit_app.py
+Open the Streamlit app in your browser and type any text to hear the generated audio.
+
+🧠 Model Loading
+To reload the saved models in your code:
+
+python
+Copier
+Modifier
+from transformers import AutoProcessor
+from your_model_file import YourModelClass
+from your_vocoder_file import YourVocoderClass
+
+processor = AutoProcessor.from_pretrained("saved_tts_model")
+model = YourModelClass.from_pretrained("saved_tts_model")
+vocoder = YourVocoderClass.from_pretrained("saved_tts_model/vocoder")
+✅ Replace YourModelClass and YourVocoderClass with the actual class names used during training/saving.
+
+💡 How It Works
+Text is entered by the user.
+
+The processor/tokenizer prepares the input.
+
+The TTS model outputs a mel spectrogram.
+
+The vocoder converts the spectrogram to audio.
+
+The app plays the audio output in real time.
+
+📦 Requirements
+torch
+
+torchaudio
+
+transformers
+
+streamlit
+
+numpy
+
+unidecode
+
+Install all with:
+
+bash
+Copier
+Modifier
+pip install -r requirements.txt
+🧪 Example
+text
+Copier
+Modifier
+Input: "Hello, how are you today?"
+Output: [Audio is played using the vocoder]
+📄 License
+This project is licensed under the MIT License.
+
+👤 Author
+Kawtar
+Master's student in Informatique & Télécommunications
+AI & Deep Learning enthusiast | Morocco 🇲🇦
+
+🌐 Demo
+
+
+
