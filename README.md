@@ -31,6 +31,53 @@ tts-demo/
 
 
 
+💡 How It Works
+Text is entered by the user.
+
+The processor/tokenizer prepares the input.
+
+The TTS model outputs a mel spectrogram.
+
+The vocoder converts the spectrogram to audio.
+
+The app plays the audio output in real time.
+
+## 📦 Requirements
+
+torch
+
+torchaudio
+
+transformers
+
+streamlit
+
+numpy
+
+unidecode
+
+Install all with:
+
+bash
+Copier
+Modifier
+pip install -r requirements.txt
+🧪 Example
+text
+Copier
+Modifier
+Input: "Hello, how are you today?"
+Output: [Audio is played using the vocoder]
+📄 License
+This project is licensed under the MIT License.
+
+## 👤 Author
+Kawtar
+Master's student in Informatique & Télécommunications
+AI & Deep Learning enthusiast | Morocco 🇲🇦
+
+🌐 Demo
+
 ---
 
 ## 🛠️ Installation
@@ -81,50 +128,3 @@ vocoder = YourVocoderClass.from_pretrained("saved_tts_model/vocoder")
 
 ✅ Replace YourModelClass and YourVocoderClass with the actual class names used during training/saving.
 ---
-
-💡 How It Works
-Text is entered by the user.
-
-The processor/tokenizer prepares the input.
-
-The TTS model outputs a mel spectrogram.
-
-The vocoder converts the spectrogram to audio.
-
-The app plays the audio output in real time.
-
-## 📦 Requirements
-
-torch
-
-torchaudio
-
-transformers
-
-streamlit
-
-numpy
-
-unidecode
-
-Install all with:
-
-bash
-Copier
-Modifier
-pip install -r requirements.txt
-🧪 Example
-text
-Copier
-Modifier
-Input: "Hello, how are you today?"
-Output: [Audio is played using the vocoder]
-📄 License
-This project is licensed under the MIT License.
-
-## 👤 Author
-Kawtar
-Master's student in Informatique & Télécommunications
-AI & Deep Learning enthusiast | Morocco 🇲🇦
-
-🌐 Demo
