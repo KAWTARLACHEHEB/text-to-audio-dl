@@ -55,14 +55,16 @@ Modifier
 processor.save_pretrained(output_dir)
 model.save_pretrained(output_dir)
 vocoder.save_pretrained(os.path.join(output_dir, "vocoder"))
-▶️ Run the Application
+
+## ▶️ Run the Application
 bash
 Copier
 Modifier
 streamlit run streamlit_app.py
 Open the Streamlit app in your browser and type any text to hear the generated audio.
 
-🧠 Model Loading
+
+## 🧠 Model Loading
 To reload the saved models in your code:
 
 python
@@ -88,7 +90,8 @@ The vocoder converts the spectrogram to audio.
 
 The app plays the audio output in real time.
 
-📦 Requirements
+## 📦 Requirements
+
 torch
 
 torchaudio
@@ -116,7 +119,7 @@ Output: [Audio is played using the vocoder]
 📄 License
 This project is licensed under the MIT License.
 
-👤 Author
+## 👤 Author
 Kawtar
 Master's student in Informatique & Télécommunications
 AI & Deep Learning enthusiast | Morocco 🇲🇦
