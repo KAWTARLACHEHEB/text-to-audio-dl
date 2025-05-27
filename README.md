@@ -29,6 +29,54 @@ tts-demo/
 ├── requirements.txt
 └── README.md
 
+## 🛠️ Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/tts-demo.git
+cd tts-demo
+Install dependencies
+
+bash
+Copier
+Modifier
+pip install -r requirements.txt
+Verify your models are saved in saved_tts_model/
+Make sure you saved them like this:
+
+python
+Copier
+Modifier
+processor.save_pretrained(output_dir)
+model.save_pretrained(output_dir)
+vocoder.save_pretrained(os.path.join(output_dir, "vocoder"))
+
+## ▶️ Run the Application
+bash
+Copier
+Modifier
+streamlit run streamlit_app.py
+Open the Streamlit app in your browser and type any text to hear the generated audio.
+
+
+## 🧠 Model Loading
+To reload the saved models in your code:
+
+python
+Copier
+Modifier
+from transformers import AutoProcessor
+from your_model_file import YourModelClass
+from your_vocoder_file import YourVocoderClass
+
+processor = AutoProcessor.from_pretrained("saved_tts_model")
+model = YourModelClass.from_pretrained("saved_tts_model")
+vocoder = YourVocoderClass.from_pretrained("saved_tts_model/vocoder")
+
+
+✅ Replace YourModelClass and YourVocoderClass with the actual class names used during training/saving.
+---
 
 
 💡 How It Works
@@ -80,51 +128,3 @@ AI & Deep Learning enthusiast | Morocco 🇲🇦
 
 ---
 
-## 🛠️ Installation
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/your-username/tts-demo.git
-cd tts-demo
-Install dependencies
-
-bash
-Copier
-Modifier
-pip install -r requirements.txt
-Verify your models are saved in saved_tts_model/
-Make sure you saved them like this:
-
-python
-Copier
-Modifier
-processor.save_pretrained(output_dir)
-model.save_pretrained(output_dir)
-vocoder.save_pretrained(os.path.join(output_dir, "vocoder"))
-
-## ▶️ Run the Application
-bash
-Copier
-Modifier
-streamlit run streamlit_app.py
-Open the Streamlit app in your browser and type any text to hear the generated audio.
-
-
-## 🧠 Model Loading
-To reload the saved models in your code:
-
-python
-Copier
-Modifier
-from transformers import AutoProcessor
-from your_model_file import YourModelClass
-from your_vocoder_file import YourVocoderClass
-
-processor = AutoProcessor.from_pretrained("saved_tts_model")
-model = YourModelClass.from_pretrained("saved_tts_model")
-vocoder = YourVocoderClass.from_pretrained("saved_tts_model/vocoder")
-
-
-✅ Replace YourModelClass and YourVocoderClass with the actual class names used during training/saving.
----
