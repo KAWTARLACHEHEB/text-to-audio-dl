@@ -29,9 +29,7 @@ tts-demo/
 ├── requirements.txt
 └── README.md
 
-yaml
-Copier
-Modifier
+
 
 ---
 
