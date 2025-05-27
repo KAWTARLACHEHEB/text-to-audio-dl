@@ -1,3 +1,7 @@
+<div>
+  <img_src="https://github.com/user-attachments/assets/0c269e33-fbba-4fb3-8313-564803d0c2e6">
+</div>
+
 # text-to-audio-dl
 # Text-to-Audio - End-to-End Deep Learning Project
 
