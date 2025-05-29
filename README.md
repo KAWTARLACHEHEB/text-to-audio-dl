@@ -125,6 +125,6 @@ Master's student in Informatique & Télécommunications
 AI & Deep Learning enthusiast | Morocco 🇲🇦
 
 🌐 Demo
-
+https://huggingface.co/spaces/123456KAWTAr/speech_app
 ---
 
