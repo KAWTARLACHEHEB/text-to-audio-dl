@@ -3,128 +3,87 @@
 </div>
 # 🗣️ Text-to-Speech (TTS) Demo with PyTorch & Streamlit
 
-This is a web-based Text-to-Speech (TTS) demo built using **PyTorch**, **Streamlit**, and pre-trained models saved in the Hugging Face-compatible format. Users can input English text and generate realistic synthetic speech.
+# Text-to-Speech Training Notebook
+
+## Présentation
+
+Ce notebook permet d'entraîner un modèle de synthèse vocale (Text-to-Speech, TTS) à partir de données textuelles et audio. Il est conçu pour être exécuté sur Google Colab avec un GPU, ce qui facilite l'entraînement même pour les utilisateurs ne disposant pas de ressources matérielles puissantes. À la fin de l'entraînement, le modèle peut être exporté et téléchargé pour un déploiement ultérieur, par exemple via une application Streamlit ou Hugging Face Spaces.
 
 ---
 
-## 🚀 Features
+## Fonctionnalités
 
-- Convert English text into speech
-- Simple, interactive web interface using Streamlit
-- Uses a pre-trained TTS model and vocoder
-- Models are saved and loaded using Hugging Face’s `save_pretrained` / `from_pretrained`
+- **Installation automatique des dépendances nécessaires**
+- **Téléchargement et préparation du jeu de données**
+- **Entraînement d'un modèle TTS (par exemple, Tacotron2 sur LJSpeech)**
+- **Sauvegarde du modèle entraîné sur Google Drive**
+- **Téléchargement facile du modèle pour une utilisation future**
+- **Déploiement facile sur Streamlit ou Hugging Face Spaces**
 
 ---
 
-## 📁 Project Structure
-tts-demo/
-├── saved_tts_model/
-│ ├── config.json
-│ ├── pytorch_model.bin
-│ ├── tokenizer_config.json
-│ └── vocoder/
-│ ├── config.json
-│ └── pytorch_model.bin
-├── streamlit_app.py
-├── requirements.txt
-└── README.md
+## Prérequis
 
-## 🛠️ Installation
+- Un compte Google pour utiliser Google Colab et Google Drive
+- Connaissances de base en Python et Machine Learning (optionnel, mais recommandé)
+- Jeu de données compatible (par défaut, LJSpeech)
 
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/your-username/tts-demo.git
-cd tts-demo
-Install dependencies
-
-bash
-Copier
-Modifier
-pip install -r requirements.txt
-Verify your models are saved in saved_tts_model/
-Make sure you saved them like this:
-
-python
-Copier
-Modifier
-processor.save_pretrained(output_dir)
-model.save_pretrained(output_dir)
-vocoder.save_pretrained(os.path.join(output_dir, "vocoder"))
-
-## ▶️ Run the Application
-bash
-Copier
-Modifier
-streamlit run streamlit_app.py
-Open the Streamlit app in your browser and type any text to hear the generated audio.
-
-
-## 🧠 Model Loading
-To reload the saved models in your code:
-
-python
-Copier
-Modifier
-from transformers import AutoProcessor
-from your_model_file import YourModelClass
-from your_vocoder_file import YourVocoderClass
-
-processor = AutoProcessor.from_pretrained("saved_tts_model")
-model = YourModelClass.from_pretrained("saved_tts_model")
-vocoder = YourVocoderClass.from_pretrained("saved_tts_model/vocoder")
-
-
-✅ Replace YourModelClass and YourVocoderClass with the actual class names used during training/saving.
 ---
 
+## Utilisation
 
-💡 How It Works
-Text is entered by the user.
+### 1. Ouvrir le notebook sur Google Colab
 
-The processor/tokenizer prepares the input.
+Téléchargez ou ouvrez le notebook `texttospeechlaaastttt.ipynb` sur Google Colab.
 
-The TTS model outputs a mel spectrogram.
+### 2. Installer les dépendances
 
-The vocoder converts the spectrogram to audio.
+Les premières cellules installent toutes les bibliothèques nécessaires, notamment :
+- [TTS](https://github.com/coqui-ai/TTS)
+- `numpy` (version compatible)
+- Autres dépendances audio
 
-The app plays the audio output in real time.
+### 3. Préparer les données
 
-## 📦 Requirements
+Le notebook télécharge et extrait automatiquement le jeu de données LJSpeech. Vous pouvez modifier cette étape pour utiliser vos propres données.
 
-torch
+### 4. Entraîner le modèle
 
-torchaudio
+L'entraînement se fait via la bibliothèque TTS. Les paramètres (nombre d'époques, batch size, etc.) sont configurables selon vos besoins et la puissance du GPU disponible.
 
-transformers
+### 5. Sauvegarder et télécharger le modèle
 
-streamlit
+À la fin de l'entraînement, le modèle est sauvegardé sur Google Drive puis compressé pour être téléchargé localement.
 
-numpy
+### 6. Déploiement
 
-unidecode
+Le modèle téléchargé peut être intégré dans une application Streamlit, ou être déployé facilement sur Hugging Face Spaces.
 
-Install all with:
-
-bash
-Copier
-Modifier
-pip install -r requirements.txt
-🧪 Example
-text
-Copier
-Modifier
-Input: "Hello, how are you today?"
-Output: [Audio is played using the vocoder]
-📄 License
-This project is licensed under the MIT License.
-
-## 👤 Author
-Kawtar
-Master's student in Informatique & Télécommunications
-AI & Deep Learning enthusiast | Morocco 🇲🇦
-
-🌐 Demo
-https://huggingface.co/spaces/123456KAWTAr/speech_app
 ---
+
+## Exemple de déploiement
+
+### Sur Hugging Face Spaces
+
+Une démo du modèle est également disponible en ligne sur Hugging Face Spaces :  
+👉 [Accéder à la démo Hugging Face](https://huggingface.co/spaces/123456KAWTAr/speech_app)
+
+Vous pouvez tester le modèle directement via cette interface web sans installation supplémentaire.
+
+---
+
+## Conseils
+
+- Pensez à ajuster la version de `numpy` si vous rencontrez des erreurs de compatibilité.
+- Utilisez un GPU Colab pour accélérer l'entraînement.
+- Sauvegardez régulièrement votre travail sur Google Drive.
+
+---
+
+## Auteurs
+
+Notebook adapté pour un usage pédagogique et pratique en synthèse vocale automatique.
+
+
+
 
